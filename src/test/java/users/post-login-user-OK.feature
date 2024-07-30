@@ -1,6 +1,8 @@
 Feature: Login User
-  Scenario: Login User OK
+  Scenario Outline: Login User OK
     Given url "https://api.demoblaze.com/login"
-    And request {  "username":"GabrielBorjaMoscoso123", "password":"123456" }
+    And request {  "username":<username>, "password":<password> }
     When method post
     Then status 200
+    Examples:
+      | read('datos.json') |

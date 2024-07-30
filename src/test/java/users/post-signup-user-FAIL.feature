@@ -1,6 +1,8 @@
 Feature: SignUp User
-  Scenario: SignUp User FAIL
+  Scenario Outline: SignUp User FAIL
     Given url "https://api.demoblaze.com/signup"
-    And request {  "username":"GabrielBorjaMoscoso", "password":"123456" }
+    And request {  "username":<username>, "password":<password> }
     When method post
     Then status 200
+    Examples:
+      | read('datos.json') |
